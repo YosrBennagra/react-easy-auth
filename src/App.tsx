@@ -5,7 +5,8 @@ import styled from "styled-components";
 import { Route, Routes } from "react-router-dom";
 import { Login } from "./components/login/login";
 import { Home } from "./components/home";
-import { RequireAuth } from "react-auth-kit";
+import { Register } from "./components/register/register"
+import {RequireAuth} from "react-auth-kit";
 
 const AppContainer = styled.div`
   width: 100%;
@@ -13,21 +14,15 @@ const AppContainer = styled.div`
 `;
 
 function App() {
-  return (
-    <AppContainer>
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <RequireAuth loginPath="/login">
-              <Home />
-            </RequireAuth>
-          }
-        ></Route>
-        <Route path="/login" element={<Login />}></Route>
-      </Routes>
-    </AppContainer>
-  );
+    return (
+        <AppContainer>
+            <Routes>
+                <Route path="/" element={<RequireAuth loginPath="/login"><Home/></RequireAuth>}></Route>
+                <Route path="/login" element={<Login/>}></Route>
+                <Route path="/register" element={<Register/>}></Route>
+            </Routes>
+        </AppContainer>
+    );
 }
 
 export default App;
